@@ -1,0 +1,28 @@
+include alerts
+p Type in a flight number
+
+p
+	input(type="text" ng-model="flightQuery" placeholder="UAE179")
+p
+	a.btn.btn-primary(ng-click="searchFlight()" ng-disabled="isLoading") {{searchBtnText}}
+	p
+		img(src='/images/airplane.gif' ng-show="isLoading")
+hr
+div(ng-show="flight")
+	img(src="{{flight.logo}}")
+	br
+	br
+	p
+		h3 {{flight.name}}
+	p
+		{{flight.route.replace(' to ', '&nbsp;&rarr;&nbsp;')}}
+	br
+	hr
+	div.col-md-4.col-md-offset-4
+		div.pull-left.text-right.col-md-5
+			p(ng-repeat="label in flight.detailLabels")
+				i {{label}}
+
+		div.pull-right.text-left.col-md-7
+			p(ng-repeat="value in flight.detailValues")
+				b {{value}}

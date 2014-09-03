@@ -1,0 +1,28 @@
+{
+  "name": "ott",
+  "version": "0.0.1",
+  "authors": [
+    "Evgheni Chiriliuc <ec.developer@gmail.com>"
+  ],
+  "keywords": [
+    "flights",
+    "nodejs"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.20",
+    "bootstrap": "~3.2.0",
+    "jquery": "~2.1.1",
+    "angular-bootstrap": "~0.11.0",
+    "angular-route": "~1.2.21",
+    "ui-bootstrap": "~0.11.0"
+  }
+}
