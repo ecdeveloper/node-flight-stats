@@ -43,14 +43,18 @@ router.get('/flight/:flight', function (req, res) {
 			var detailLabels = [];
 			var detailValues = [];
 
+			var grabDetailsCell = function (rowInx, cellInx) {
+				return window.$('.statusDetailsTable tr:eq('+ rowInx +') > td:eq('+ cellInx +')').text().replace(/\t{2,}/g, '').replace(/\n/g, ' ');
+			}
+
 			for (var i = 1; i < window.$('.statusDetailsTable tr').length; i++) {
 				// As long as we don't really know what's inside status detail table - we just separate the labels (odd rows) and values (even rows)
 				if (i % 2 !== 0) {
-					detailLabels.push(window.$('.statusDetailsTable tr:eq('+ i +') > td:eq(0)').text().replace(/\t{2,}/g, '').replace(/\n/g, ' '));
-					detailLabels.push(window.$('.statusDetailsTable tr:eq('+ i +') > td:eq(1)').text().replace(/\t{2,}/g, '').replace(/\n/g, ' '));
+					detailLabels.push(grabDetailsCell(i, 0));
+					detailLabels.push(grabDetailsCell(i, 1));
 				} else {
-					detailValues.push(window.$('.statusDetailsTable tr:eq('+ i +') > td:eq(0)').text().replace(/\t{2,}/g, '').replace(/\n/g, ' '));
-					detailValues.push(window.$('.statusDetailsTable tr:eq('+ i +') > td:eq(1)').text().replace(/\t{2,}/g, '').replace(/\n/g, ' '));
+					detailValues.push(grabDetailsCell(i, 0));
+					detailValues.push(grabDetailsCell(i, 1));
 				}
 			}
 
